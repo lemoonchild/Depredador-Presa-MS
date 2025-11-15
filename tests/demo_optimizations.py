@@ -121,26 +121,26 @@ def demo_save_load():
     # NPZ format
     save_results(result, 'data/results/demo_result.npz', format='npz',
                 compress=True, metadata=metadata)
-    print("✓ Saved as NPZ (compressed)")
+    print("  Saved as NPZ (compressed)")
 
     # Pickle format
     save_results(result, 'data/results/demo_result.pkl', format='pickle',
                 metadata=metadata)
-    print("✓ Saved as Pickle")
+    print("  Saved as Pickle")
 
     # Load and verify
     print("\nLoading results...")
     loaded_npz = load_results('data/results/demo_result.npz')
     loaded_pkl = load_results('data/results/demo_result.pkl')
 
-    print(f"✓ NPZ loaded successfully: {loaded_npz['R'].shape}")
-    print(f"✓ Pickle loaded successfully: {loaded_pkl['R'].shape}")
+    print(f"  NPZ loaded successfully: {loaded_npz['R'].shape}")
+    print(f"  Pickle loaded successfully: {loaded_pkl['R'].shape}")
 
     # Verify data integrity
     print("\nVerifying data integrity...")
     assert np.allclose(result['R'], loaded_npz['R']), "NPZ data mismatch!"
     assert np.allclose(result['R'], loaded_pkl['R']), "Pickle data mismatch!"
-    print("✓ All data verified successfully")
+    print("  All data verified successfully")
 
 
 def demo_spatial_analysis():
@@ -282,7 +282,7 @@ def run_all_demos():
 if __name__ == "__main__":
     run_all_demos()
 
-    print("\n✓ All optimization features demonstrated!")
+    print("\n  All optimization features demonstrated!")
     print("\nKey features:")
     print("  - Comprehensive CFL stability checking")
     print("  - Automatic stable time step suggestion")

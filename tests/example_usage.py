@@ -5,8 +5,6 @@ This script shows how to use:
 - PDESolver: Base diffusion solver
 - LotkaVolterraSolver: Reaction-diffusion with predator-prey dynamics
 - StochasticSolver: Stochastic version with environmental noise
-
-Author: Persona 1 - Core Solver & Métodos Numéricos
 """
 
 import numpy as np
@@ -42,7 +40,7 @@ def example_1_pure_diffusion():
     print("Solving pure diffusion equation...")
     result = solver.solve_diffusion(u0, D=0.1, T=20.0, dt=0.005, save_every=200)
 
-    print(f"✓ Simulation complete")
+    print(f"  Simulation complete")
     print(f"  Final time: {result['times'][-1]:.2f}")
     print(f"  Number of saved snapshots: {len(result['times'])}")
 
@@ -109,7 +107,7 @@ def example_2_lotka_volterra_deterministic():
     print("\nChecking numerical stability...")
     dt = 0.01
     is_stable, _ = check_stability_comprehensive(params, dt, solver.dx, solver.dy, verbose=False)
-    print(f"Stability check: {'PASS ✓' if is_stable else 'FAIL ✗'}")
+    print(f"Stability check: {'PASS  ' if is_stable else 'FAIL ✗'}")
 
     # Solve
     print("Solving Lotka-Volterra system...")
@@ -121,7 +119,7 @@ def example_2_lotka_volterra_deterministic():
     F_total = np.array([compute_total_population(result['F'][i], solver.dx, solver.dy)
                         for i in range(len(result['times']))])
 
-    print(f"✓ Simulation complete")
+    print(f"  Simulation complete")
     print(f"  Initial prey population: {R_total[0]:.2f}")
     print(f"  Final prey population: {R_total[-1]:.2f}")
     print(f"  Initial predator population: {F_total[0]:.2f}")
@@ -176,7 +174,7 @@ def example_2_lotka_volterra_deterministic():
     print("\nSaving results...")
     save_results(result, 'data/results/example2_lotka_volterra.npz',
                 metadata={'example': 'Deterministic LV', 'type': 'reaction-diffusion'})
-    print("✓ Results saved to: data/results/example2_lotka_volterra.npz")
+    print("  Results saved to: data/results/example2_lotka_volterra.npz")
 
     return result, fig
 
@@ -252,7 +250,7 @@ def example_3_stochastic_ensemble():
     F_mean_total = np.mean(F_totals, axis=0)
     F_std_total = np.std(F_totals, axis=0)
 
-    print(f"✓ Ensemble complete")
+    print(f"  Ensemble complete")
     print(f"  Number of realizations: {n_realizations}")
     print(f"  Final prey (mean ± std): {R_mean_total[-1]:.2f} ± {R_std_total[-1]:.2f}")
     print(f"  Final predator (mean ± std): {F_mean_total[-1]:.2f} ± {F_std_total[-1]:.2f}")
@@ -347,9 +345,9 @@ def main():
     print("=" * 70)
 
     print("\nSummary:")
-    print("  ✓ Example 1: Pure diffusion solver")
-    print("  ✓ Example 2: Deterministic Lotka-Volterra")
-    print("  ✓ Example 3: Stochastic ensemble simulation")
+    print("    Example 1: Pure diffusion solver")
+    print("    Example 2: Deterministic Lotka-Volterra")
+    print("    Example 3: Stochastic ensemble simulation")
 
     print("\nGenerated files:")
     print("  - data/results/example2_lotka_volterra.npz")

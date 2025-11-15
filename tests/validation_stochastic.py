@@ -317,7 +317,7 @@ if __name__ == "__main__":
     # Run all validation tests
     results = run_all_validations()
 
-    print("\n✓ All tests completed successfully!")
+    print("\n  All tests completed successfully!")
     print("\nThe StochasticSolver is validated for:")
     print("  - Euler-Maruyama method for SDEs")
     print("  - Correct Wiener increment generation")

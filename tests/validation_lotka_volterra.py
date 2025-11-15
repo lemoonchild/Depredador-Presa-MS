@@ -321,7 +321,7 @@ if __name__ == "__main__":
     # Run all validation tests
     results = run_all_validations()
 
-    print("\n✓ All tests completed successfully!")
+    print("\n  All tests completed successfully!")
     print("\nThe LotkaVolterraSolver is validated for:")
     print("  - Logistic growth term with carrying capacity")
     print("  - Type II functional response (predation)")
